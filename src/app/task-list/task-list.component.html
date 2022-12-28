@@ -1,7 +1,11 @@
 <div class="container">
     <div class="todo-list">
       <div class="input-group">
-        {{title}}
+        
+        <div class="input-group">
+          <input [value]="date">
+        </div>
+
         <input type="text" placeholder="Todo" #newTask>
         <button (click)="add(newTask.value)" class="add-button">+</button>
       </div>
