@@ -5,3 +5,15 @@
 .is-done{
     text-decoration: line-through;
 }
+
+tr{
+    height: 50px;
+    text-align: left;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+p{
+    line-height: 50px;
+}

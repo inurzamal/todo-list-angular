@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -11,6 +12,8 @@ export class TaskListComponent implements OnInit {
   title = 'todo-list';
 
   constructor(private route:ActivatedRoute) { }
+
+  newTaskTitle:string = "";
 
   date: Date = new Date();
 
@@ -30,8 +33,9 @@ export class TaskListComponent implements OnInit {
     new Task('Pesto Training')
   ]
 
-  add(newTask:string){ //not persisted yet
-    this.tasks.push(new Task(newTask))
+  add(){ //not persisted yet
+    this.tasks.push(new Task(this.newTaskTitle))
+    this.newTaskTitle = "" //clearing the fields by setting the variable empty as it is two-way binding
   }
 
   remove(existingTask: Task){ //you can use id here
