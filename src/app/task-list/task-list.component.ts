@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 
 
@@ -33,9 +34,17 @@ export class TaskListComponent implements OnInit {
     new Task('Pesto Training')
   ]
 
-  add(){ //not persisted yet
+  add(taskNgForm: NgForm){
+
+    if(taskNgForm.touched == false)
+      return;
+
+    // if(taskNgForm.valid == false)
+    //   return; //handling from the form
+
     this.tasks.push(new Task(this.newTaskTitle))
-    this.newTaskTitle = "" //clearing the fields by setting the variable empty as it is two-way binding
+    taskNgForm.reset({date:this.date}) // reset form but keep the date
+
   }
 
   remove(existingTask: Task){ //you can use id here
